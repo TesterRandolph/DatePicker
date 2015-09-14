@@ -294,6 +294,14 @@
         var cal = $(el);
         var currentCal = Math.floor(options.calendars/2), date, data, dow, month, cnt = 0, days, indic, indic2, html, tblCal;
         
+        var today = new Date();
+        
+        today = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+        
+        if (options.maxDate.getTime() == today.getTime()) {
+            currentCal = options.calendars - 1;
+        }
+        
         cal.find('td>table tbody').remove();
         for(var i = 0; i < options.calendars; i++) {
           date = new Date(options.current);
